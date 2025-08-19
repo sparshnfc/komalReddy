@@ -10,6 +10,7 @@ app.get("/", (req,res)=>{
 app.get("/site", (req,res)=>{
     res.render("index.ejs");
 })
+console.log("System Runs>.........");
 
 app.listen(3000, (req,res)=>{
     console.log(`Port start workingon ${3000}`);  
