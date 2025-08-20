@@ -1,17 +1,19 @@
 import express from "express";
-import ejs from "ejs-mate"
-
 const app = express();
+const port = 3000;
 
-app.get("/", (req,res)=>{
-    res.send("<h1>Hello</h1>")
-})
+// Set EJS as the templating engine
+app.set('view engine', 'ejs');
 
-app.get("/site", (req,res)=>{
-    res.render("index.ejs");
-})
-console.log("System Runs>.........");
+// Serve static files from the "public" directory (optional)
+app.use(express.static('public'));
 
-app.listen(3000, (req,res)=>{
-    console.log(`Port start workingon ${3000}`);  
-})
+// Routes
+app.get('/', (req, res) => {
+  res.render('index', { title: 'Home Page', message: 'Welcome to EJS with Node.js!' });
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
