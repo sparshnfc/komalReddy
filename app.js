@@ -3,14 +3,18 @@ const app = express();
 const port = 3000;
 
 // Set EJS as the templating engine
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 // Serve static files from the "public" directory (optional)
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // Routes
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Home Page', message: 'Welcome to EJS with Node.js!' });
+app.get("/", (req, res) => {
+  res.render("index", { title: "Home Page", message: "Welcome to EJS with Node.js!" });
+});
+
+app.get("/test", (req, res) => {
+  res.send("<h1>Hello</h1>");
 });
 
 // Start the server
